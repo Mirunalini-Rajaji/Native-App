@@ -1,0 +1,114 @@
+{
+  "allProducts": [
+    {
+      "id": 6,
+      "image": "toys.jpg",
+      "name": "nokia",
+      "price": 100,
+      "quantity": "11",
+      "category": "ddddd"
+    },
+    {
+      "id": 7,
+      "image": "bag.jpeg",
+      "name": "jbl",
+      "price": "120",
+      "quantity": "1",
+      "category": "ddddd"
+    },
+    {
+      "id": 10,
+      "image": "earphone.jpg",
+      "name": "jeans",
+      "price": "10",
+      "quantity": "4",
+      "category": "accss"
+    },
+    {
+      "name": "hero",
+      "price": "",
+      "quantity": "",
+      "category": "",
+      "id": 11
+    },
+    {
+      "name": "aaaaaa",
+      "price": "",
+      "quantity": "",
+      "category": "",
+      "id": 12
+    },
+    {
+      "name": "",
+      "price": "",
+      "quantity": "",
+      "category": "",
+      "id": 13
+    },
+    {
+      "name": "",
+      "price": "",
+      "quantity": "",
+      "category": "",
+      "id": 14
+    },
+    {
+      "name": "",
+      "price": "",
+      "quantity": "",
+      "category": "",
+      "id": 15
+    },
+    {
+      "name": "",
+      "price": "",
+      "quantity": "",
+      "category": "",
+      "id": 16
+    },
+    {
+      "name": "",
+      "price": "",
+      "quantity": "",
+      "category": "",
+      "id": 17
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "miru",
+      "lastName": "lini",
+      "email": "abc@gmail.com",
+      "pwd": "11111"
+    },
+    {
+      "firstName": "kab",
+      "lastName": "kk",
+      "email": "aa",
+      "pwd": "11",
+      "id": 2
+    },
+    {
+      "firstName": "aa",
+      "lastName": "aa",
+      "email": "qq",
+      "pwd": "aa",
+      "id": 3
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "pwd": "",
+      "id": 4
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "pwd": "",
+      "id": 5
+    }
+  ]
+}
