@@ -4,8 +4,8 @@ import { View, Text, TouchableOpacity,TextInput } from "react-native";
 import Axios from "axios";
 
 export default function LoginComponent({navigation}){
-    const[email,setEmail]=useState('');
-    const[pwd,setPwd]=useState('')
+    const[email,setEmail]=useState("");
+    const[pwd,setPwd]=useState("")
     let emailChange=(value)=>{
     
         setEmail(value)
@@ -28,19 +28,7 @@ export default function LoginComponent({navigation}){
        }
       
     }
-    //     console.log(data)
-        
-    //     if (data.data.length !== 0) {
-           
-    //         if (pwd === data.data[0].pwd) {
-    //             console.log(pwd)
-              
-            // placeholderTextColor="#003f5c"
-            //         } 
-    //         navigation.navigate('Inventory')
-           
-    // }
-
+    
 
     return(
         <View style={styles.containerStyle}>

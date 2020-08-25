@@ -1,43 +1,80 @@
-// import React from "react";
 import { styles } from "../globalStyle/style";
-import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from "react-native";
+import { useIsFocused } from '@react-navigation/native'
+import { View, Text, TouchableOpacity, ScrollView, Image, TextInput, Button } from "react-native";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { FlatList } from "react-native-gesture-handler";
+import { color } from "react-native-reanimated";
 
 export default function ProductComponent({ navigation }) {
 
-
+    const focused = useIsFocused()
     const [products, setProducts] = useState([])
+    const [searchList, setSearchList] = useState([])
 
-    useEffect(() => {
+    const getAllProducts = () => {
         axios.get(' http://localhost:3000/allProducts ')
             .then(res => {
-                console.log(res.data)
-                setProducts(res.data)
+
+                setProducts(res.data);
+                setSearchList(res.data)
             })
-    })
+
+    }
+    useEffect(() => {
+        getAllProducts()
+
+    }, [focused])
 
 
+    const searchValue = (value) => {
+        let searchV = searchList.filter(s => {
+            return s.name.toLowerCase().match(value.toLowerCase().trim())
 
+        })
+        setProducts(searchV)
+    }
+
+    const deleteById = (id) => {
+        console.log(id)
+        axios.delete("http://localhost:3000/allProducts/" + id)
+            .then(res => {
+                getAllProducts()
+
+            })
+    }
 
     return (
         <ScrollView>
             <View style={styles.container}>
 
-                <TouchableOpacity style={styles.addbutton}
-                    onPress={() => { navigation.navigate('AddProduct') }}      >
-                    <Text style={styles.add}>Add Product</Text>
-                </TouchableOpacity>
+                <Button title="Add Product"
+                    onPress={() => { navigation.navigate('AddProduct') }}>
+                  
+                </Button>
+                <View style={styles.searchView} >
+                    <TextInput
+                        style={styles.searchText}
+                        placeholder="Search"
+                        placeholderTextColor='white'
+                        onChangeText={searchValue}
+                    />
+                </View>
 
-                <View>
+                <View >
                     <FlatList
                         numColumns={1}
                         keyExtractor={(item) => item.id}
                         data={products}
                         renderItem={({ item }) => (
                             <TouchableOpacity onPress={() => navigation.navigate('ProductDetails', { item: item })}>
-                                <Text style={styles.listitem}>{item.name}</Text>
+                                <View style={styles.listitem}>
+                                    <Text style={styles.name}>{item.name}</Text>
+                                    <Image style={styles.imageItem} source={{ uri: item.image }} />
+                                    <Button onPress={() => deleteById(item.id)} title="Delete"></Button>
+                                    <Button onPress={() => navigation.navigate('EditProduct', { item: item })} title="Edit"></Button>
+                                </View>
+
                             </TouchableOpacity>
                         )}>
 

@@ -1,77 +1,36 @@
 {
   "allProducts": [
     {
-      "id": 6,
-      "image": "toys.jpg",
-      "name": "nokia",
-      "price": 100,
+      "name": "boat",
+      "price": "2000",
       "quantity": "11",
-      "category": "ddddd"
-    },
-    {
-      "id": 7,
-      "image": "bag.jpeg",
-      "name": "jbl",
-      "price": "120",
-      "quantity": "1",
-      "category": "ddddd"
-    },
-    {
-      "id": 10,
-      "image": "earphone.jpg",
-      "name": "jeans",
-      "price": "10",
-      "quantity": "4",
-      "category": "accss"
-    },
-    {
-      "name": "hero",
-      "price": "",
-      "quantity": "",
-      "category": "",
-      "id": 11
-    },
-    {
-      "name": "aaaaaa",
-      "price": "",
-      "quantity": "",
-      "category": "",
-      "id": 12
-    },
-    {
-      "name": "",
-      "price": "",
-      "quantity": "",
-      "category": "",
-      "id": 13
-    },
-    {
-      "name": "",
-      "price": "",
-      "quantity": "",
-      "category": "",
+      "category": "mobile",
+      "image": "https://images.ctfassets.net/wcfotm6rrl7u/LSPG6inDl6x5jEeSmWspd/9ecbd8065ced16df4dc63550c10a1c3b/nokia_7_2-HERO-mobile.jpg",
       "id": 14
     },
     {
-      "name": "",
-      "price": "",
-      "quantity": "",
-      "category": "",
-      "id": 15
+      "name": "boat",
+      "price": "2000",
+      "quantity": "4",
+      "category": "Mobiles",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQZlu99v76I5u1Weu6iL6sAljm55brvyHfRsQ&usqp=CAU",
+      "id": 18
     },
     {
-      "name": "",
+      "name": "honor",
       "price": "",
       "quantity": "",
       "category": "",
-      "id": 16
+      "image": "https://images.ctfassets.net/wcfotm6rrl7u/djz6vPpvy2uGZ9JPlSv5W/e8925d4804447b4ab931fc5716bbf19e/nokia_8_3_5G-CONNECTIVITY-desktop.png",
+      "id": 19
     },
     {
-      "name": "",
-      "price": "",
-      "quantity": "",
-      "category": "",
-      "id": 17
+      "name": "handbag",
+      "price": "500",
+      "quantity": "3",
+      "category": "bags",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOlJTUTupqjoMFb-rJy9Ivy7brOB9Fa_xZPA&usqp=CAU",
+      "id": 20
     }
   ],
   "users": [
@@ -109,6 +68,20 @@
       "email": "",
       "pwd": "",
       "id": 5
+    },
+    {
+      "firstName": "miru",
+      "lastName": "lini",
+      "email": "miru@gmail.com",
+      "pwd": "1111",
+      "id": 6
+    },
+    {
+      "firstName": "diya",
+      "lastName": "diya",
+      "email": "diya@gmail.com",
+      "pwd": "Diya*1234",
+      "id": 7
     }
   ]
 }

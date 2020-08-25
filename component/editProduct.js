@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import { styles } from "../globalStyle/style";
 import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import Axios from "axios";
-
-export default function AddProductComponent({ navigation }) {
+export default function EditProductComponent(item, { navigation }) {
+    const data = item.route.params.item
     const [name, setname] = useState('');
     const [price, setPrice] = useState('');
     const [quantity, setQuantity] = useState('');
@@ -25,6 +25,14 @@ export default function AddProductComponent({ navigation }) {
     let imageValue = (value) => {
         setImage(value)
     }
+
+    useEffect(() => {
+        setname(data.name)
+        setPrice(data.price)
+        setQuantity(data.quantity)
+        setCategory(data.category)
+        setImage(data.image)
+    }, [])
     const submitHandler = (name, price, quantity, category, image) => {
         let product = {
             name: name,
@@ -33,19 +41,21 @@ export default function AddProductComponent({ navigation }) {
             category: category,
             image: image
         }
-        Axios.post('http://localhost:3000/allProducts', product).then(response => {
-            navigation.navigate('Products')
-        }, [])
+        Axios.put("http://localhost:3000/allProducts/" + data.id, product).then(response => {
+            console.log(data.id)
+            item.navigation.navigate('Products')
+        })
     }
     return (
         <View style={styles.containerStyle}>
-            <Text style={styles.textStyle}>Add Product</Text>
+            <Text style={styles.textStyle}>Edit Product</Text>
             <View style={styles.inputView} >
                 <TextInput
                     style={styles.inputText}
                     placeholder="Product Name"
                     placeholderTextColor="#8690b8"
                     onChangeText={namevalue}
+                    value={name}
                 />
             </View>
             <View style={styles.inputView} >
@@ -55,6 +65,7 @@ export default function AddProductComponent({ navigation }) {
                     placeholder="Price"
                     placeholderTextColor="#8690b8"
                     onChangeText={priceValue}
+                    value={price}
                 />
             </View>
 
@@ -65,6 +76,7 @@ export default function AddProductComponent({ navigation }) {
                     placeholder="Quantity"
                     placeholderTextColor="#8690b8"
                     onChangeText={quantityValue}
+                    value={quantity}
                 />
             </View>
             <View style={styles.inputView} >
@@ -74,6 +86,7 @@ export default function AddProductComponent({ navigation }) {
                     placeholder="Category"
                     placeholderTextColor="#8690b8"
                     onChangeText={categoryValue}
+                    value={category}
                 />
             </View>
             <View style={styles.inputView} >
@@ -83,13 +96,15 @@ export default function AddProductComponent({ navigation }) {
                     placeholder="Image Url"
                     placeholderTextColor="#8690b8"
                     onChangeText={imageValue}
+                    value={image}
                 />
             </View>
             <TouchableOpacity style={styles.lgnbutton}
                 onPress={() => submitHandler(name, price, quantity, category, image)} >
-                <Text style={styles.button}>Add</Text>
+                <Text style={styles.button}>Update</Text>
             </TouchableOpacity>
 
         </View>
     )
+
 }
