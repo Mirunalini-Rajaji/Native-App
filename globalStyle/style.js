@@ -68,8 +68,8 @@ export const styles = StyleSheet.create({
    
     width: "70%",
     height: 150,
-    backgroundColor: '#465881',
-    color: "#fb5b5a"
+    // backgroundColor: '#465881',
+    // color: "#fb5b5a"
   },
   lgnbutton: {
     width: "80%",
@@ -103,16 +103,16 @@ export const styles = StyleSheet.create({
   },
   productStyle: {
     fontWeight: "italic",
-    fontSize: 30,
+    fontSize: 25,
     color: "#b1b669",
-    fontFamily: 'sans-serif-medium'
+    fontFamily: 'my-custom-font'
 
   },
   nameStyle: {
     fontWeight: "bold",
     fontFamily: 'my-custom-font',
     fontSize: 45,
-    color: "#fb5b5a",
+    color: "#8690b8",
     marginBottom: 20
 
   }

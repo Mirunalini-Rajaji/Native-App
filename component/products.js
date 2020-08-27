@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, ScrollView, Image, TextInput, Button } fr
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { FlatList } from "react-native-gesture-handler";
-import { color } from "react-native-reanimated";
+
 
 export default function ProductComponent({ navigation }) {
 
@@ -29,7 +29,8 @@ export default function ProductComponent({ navigation }) {
 
     const searchValue = (value) => {
         let searchV = searchList.filter(s => {
-            return s.name.toLowerCase().match(value.toLowerCase().trim())
+            return( s.name.toLowerCase().match(value.toLowerCase().trim())||
+                    s.category.toLowerCase().match(value.toLowerCase().trim()))
 
         })
         setProducts(searchV)
@@ -48,7 +49,7 @@ export default function ProductComponent({ navigation }) {
         <ScrollView>
             <View style={styles.container}>
 
-                <Button title="Add Product"
+                <Button title="Add Product" color="#465881"
                     onPress={() => { navigation.navigate('AddProduct') }}>
                   
                 </Button>
@@ -71,8 +72,9 @@ export default function ProductComponent({ navigation }) {
                                 <View style={styles.listitem}>
                                     <Text style={styles.name}>{item.name}</Text>
                                     <Image style={styles.imageItem} source={{ uri: item.image }} />
-                                    <Button onPress={() => deleteById(item.id)} title="Delete"></Button>
-                                    <Button onPress={() => navigation.navigate('EditProduct', { item: item })} title="Edit"></Button>
+                                    <Button onPress={() => navigation.navigate('EditProduct', { item: item })} title="Edit" color="#003f5c"></Button><br></br>
+                                    <Button onPress={() => deleteById(item.id)} title="Delete" color="#003f5c"></Button>
+                                   
                                 </View>
 
                             </TouchableOpacity>
