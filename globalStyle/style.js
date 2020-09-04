@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
   name: {
     fontWeight: "bold",
     fontSize: 30,
-    color: "#8690b8"
+    color: 'white'
   },
   container: {
 
@@ -68,8 +68,7 @@ export const styles = StyleSheet.create({
    
     width: "70%",
     height: 150,
-    // backgroundColor: '#465881',
-    // color: "#fb5b5a"
+   
   },
   lgnbutton: {
     width: "80%",
@@ -112,8 +111,17 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     fontFamily: 'my-custom-font',
     fontSize: 45,
-    color: "#8690b8",
+    color: 'white',
     marginBottom: 20
 
+  },
+  dropView: {
+    width: "80%",
+    backgroundColor: "#465881",
+    borderRadius: 25,
+    height: 65,
+    marginBottom: 20,
+    padding: 10,
+    justifyContent: "center"
   }
 })

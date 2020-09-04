@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { styles } from "../globalStyle/style";
+import { styles } from "../../globalStyle/style";
 import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import Axios from "axios";
 export default function EditProductComponent(item, { navigation }) {
     const data = item.route.params.item
@@ -9,20 +10,26 @@ export default function EditProductComponent(item, { navigation }) {
     const [quantity, setQuantity] = useState('');
     const [category, setCategory] = useState('');
     const [image, setImage] = useState('');
+    const [field,setField] = useState(false);
 
     let namevalue = (value) => {
+        setField(false)
         setname(value)
     }
     let priceValue = (value) => {
+        setField(false)
         setPrice(value)
     }
     let quantityValue = (value) => {
+        setField(false)
         setQuantity(value)
     }
     let categoryValue = (value) => {
+        setField(false)
         setCategory(value)
     }
     let imageValue = (value) => {
+        setField(false)
         setImage(value)
     }
 
@@ -34,6 +41,10 @@ export default function EditProductComponent(item, { navigation }) {
         setImage(data.image)
     }, [])
     const submitHandler = (name, price, quantity, category, image) => {
+        if(name===''||price===''||quantity===''||category===''||image===''){
+            setField(true)
+        }
+        if(name!==''&&price!==''&&quantity!==''&&category!==''&&image!==''){
         let product = {
             name: name,
             price: price,
@@ -46,7 +57,14 @@ export default function EditProductComponent(item, { navigation }) {
             item.navigation.navigate('Products')
         })
     }
+}
     return (
+        <ScrollView>
+        {field &&
+         <View style={styles.containerStyle}>
+
+        <Text style={styles.productStyle}>Fill all details</Text>
+        </View>}
         <View style={styles.containerStyle}>
             <Text style={styles.textStyle}>Edit Product</Text>
             <View style={styles.inputView} >
@@ -105,6 +123,7 @@ export default function EditProductComponent(item, { navigation }) {
             </TouchableOpacity>
 
         </View>
+        </ScrollView>
     )
 
 }

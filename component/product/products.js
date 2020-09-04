@@ -1,4 +1,4 @@
-import { styles } from "../globalStyle/style";
+import { styles } from "../../globalStyle/style";
 import { useIsFocused } from '@react-navigation/native'
 import { View, Text, TouchableOpacity, ScrollView, Image, TextInput, Button } from "react-native";
 import React, { useState, useEffect } from 'react';
@@ -29,8 +29,7 @@ export default function ProductComponent({ navigation }) {
 
     const searchValue = (value) => {
         let searchV = searchList.filter(s => {
-            return( s.name.toLowerCase().match(value.toLowerCase().trim())||
-                    s.category.toLowerCase().match(value.toLowerCase().trim()))
+            return s.name.toLowerCase().match(value.toLowerCase().trim())
 
         })
         setProducts(searchV)
@@ -71,7 +70,7 @@ export default function ProductComponent({ navigation }) {
                             <TouchableOpacity onPress={() => navigation.navigate('ProductDetails', { item: item })}>
                                 <View style={styles.listitem}>
                                     <Text style={styles.name}>{item.name}</Text>
-                                    <Image style={styles.imageItem} source={{ uri: item.image }} />
+                                    <Image style={styles.imageItem} source={require(`/react/native/mynativeapp/assets/images/${item.image}`)} />
                                     <Button onPress={() => navigation.navigate('EditProduct', { item: item })} title="Edit" color="#003f5c"></Button><br></br>
                                     <Button onPress={() => deleteById(item.id)} title="Delete" color="#003f5c"></Button>
                                    
